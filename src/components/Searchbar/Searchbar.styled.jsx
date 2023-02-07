@@ -5,6 +5,7 @@ export const Serchbar = styled.header`
   left: 0;
   position: sticky;
   z-index: 1100;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;

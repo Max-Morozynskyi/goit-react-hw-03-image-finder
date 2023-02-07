@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { createPortal } from 'react-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Overlay, ModalField } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -27,11 +27,18 @@ export class Modal extends Component {
   };
 
   render() {
+    const { img } = this.props;
     return createPortal(
       <Overlay onClick={this.handleBackdropClick}>
-        <ModalField>{this.props.children}</ModalField>
+        <ModalField>
+          <img src={img} alt="" />
+        </ModalField>
       </Overlay>,
       modalRoot
     );
   }
 }
+
+Modal.propTypes = {
+  img: PropTypes.string.isRequired,
+};

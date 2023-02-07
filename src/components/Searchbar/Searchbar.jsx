@@ -19,7 +19,7 @@ export class Searchbar extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    this.props.qwert(this.state.searchValue);
+    this.props.newSubmit(this.state.searchValue);
 
     this.setState({ searchValue: '' });
   };
@@ -28,8 +28,8 @@ export class Searchbar extends Component {
     const { searchValue } = this.state;
     return (
       <Serchbar>
-        <SearchForm>
-          <SearchFormBtn type="submit" onSubmit={this.handleSubmit}>
+        <SearchForm onSubmit={this.handleSubmit}>
+          <SearchFormBtn type="submit">
             <ImSearch size="20" color="blue" />
             <SubmitLabel>Search</SubmitLabel>
           </SearchFormBtn>
